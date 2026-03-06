@@ -15,17 +15,17 @@ module "network" {
   }
 
   subnets = {
-    subnet-cm-service-dev = {
+    "subnet-${var.project_acronym}-service-${var.environment}" = {
       address_prefixes   = ["10.7.164.32/27"]
       service_endpoints  = ["Microsoft.Storage", "Microsoft.KeyVault"]
       service_delegation = false
     }
-    subnet-cm-linux-apps-dev = {
+    "subnet-${var.project_acronym}-linux-apps-${var.environment}" = {
       address_prefixes   = ["10.7.164.64/27"]
       service_endpoints  = ["Microsoft.Storage", "Microsoft.KeyVault"]
       service_delegation = true
     }
-    subnet-cm-windows-apps-dev = {
+    "subnet-${var.project_acronym}-windows-apps-${var.environment}" = {
       address_prefixes   = ["10.7.164.96/27"]
       service_endpoints  = ["Microsoft.Storage", "Microsoft.KeyVault"]
       service_delegation = true
@@ -49,14 +49,4 @@ module "network" {
     environment = var.subscription_env
     project     = var.project_acronym
   }
-}
-
-import {
-  to = module.network.azurerm_private_dns_zone.dns["vault"]
-  id = "/subscriptions/854f6d72-6641-4711-8deb-76d9ff49470d/resourceGroups/RG-Connectivity/providers/Microsoft.Network/privateDnsZones/privatelink.vaultcore.azure.net"
-}
-
-import {
-  to = module.network.azurerm_private_dns_zone.dns["sites"]
-  id = "/subscriptions/854f6d72-6641-4711-8deb-76d9ff49470d/resourceGroups/RG-Connectivity/providers/Microsoft.Network/privateDnsZones/privatelink.azurewebsites.net"
 }

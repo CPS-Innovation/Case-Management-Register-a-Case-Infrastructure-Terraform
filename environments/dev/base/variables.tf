@@ -3,6 +3,11 @@ variable "subscription_env" {
   description = "The subscription environment, e.g 'prod' or 'preprod'."
 }
 
+variable "environment" {
+  type        = string
+  description = "The deployment environment, e.g. Dev, Staging, Prod."
+}
+
 variable "project_acronym" {
   type        = string
   description = "The abbreviated project name."

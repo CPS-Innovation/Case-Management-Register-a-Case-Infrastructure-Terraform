@@ -10,17 +10,17 @@ module "network" {
   route_table_id   = data.azurerm_route_table.rt.id
 
   subnets = {
-    subnet-cm-service-staging = {
+    "subnet-${var.project_acronym}-service-${var.environment}" = {
       address_prefixes   = ["10.7.164.128/27"]
       service_endpoints  = ["Microsoft.Storage", "Microsoft.KeyVault"]
       service_delegation = false
     }
-    subnet-cm-linux-apps-staging = {
+    "subnet-${var.project_acronym}-linux-apps-${var.environment}" = {
       address_prefixes   = ["10.7.164.160/27"]
       service_endpoints  = ["Microsoft.Storage", "Microsoft.KeyVault"]
       service_delegation = true
     }
-    subnet-cm-windows-apps-staging = {
+    "subnet-${var.project_acronym}-windows-apps-${var.environment}" = {
       address_prefixes   = ["10.7.164.192/27"]
       service_endpoints  = ["Microsoft.Storage", "Microsoft.KeyVault"]
       service_delegation = true
