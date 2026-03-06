@@ -15,17 +15,17 @@ module "network" {
   }
 
   subnets = {
-    subnet-cm-service-dev = {
+    "subnet-${var.project_acronym}-service-${var.environment}" = {
       address_prefixes   = ["10.7.164.32/27"]
       service_endpoints  = ["Microsoft.Storage", "Microsoft.KeyVault"]
       service_delegation = false
     }
-    subnet-cm-linux-apps-dev = {
+    "subnet-${var.project_acronym}-linux-apps-${var.environment}" = {
       address_prefixes   = ["10.7.164.64/27"]
       service_endpoints  = ["Microsoft.Storage", "Microsoft.KeyVault"]
       service_delegation = true
     }
-    subnet-cm-windows-apps-dev = {
+    "subnet-${var.project_acronym}-windows-apps-${var.environment}" = {
       address_prefixes   = ["10.7.164.96/27"]
       service_endpoints  = ["Microsoft.Storage", "Microsoft.KeyVault"]
       service_delegation = true

@@ -2,7 +2,7 @@ data "azurerm_client_config" "current" {}
 
 # The Enterprise App (service principal) used to deploy code to the resources in the environment
 data "azuread_service_principal" "ado" {
-  display_name = "Azure Pipeline: CM-PreProd"
+  display_name = "Azure Pipeline: CMRC-PreProd"
 }
 
 data "azurerm_private_dns_zone" "dns" {

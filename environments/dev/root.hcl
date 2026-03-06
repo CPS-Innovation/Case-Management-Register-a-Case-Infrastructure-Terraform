@@ -9,8 +9,8 @@ remote_state {
 
   config = {
     key                  = "${path_relative_to_include()}/terraform.tfstate"
-    resource_group_name  = "rg-cm-devops-preprod"
-    storage_account_name = "sacmtfstatedev"
+    resource_group_name  = "rg-cmrc-devops-preprod"
+    storage_account_name = "sacmrctfstatedev"
     container_name       = "tfstate"
   }
 }
