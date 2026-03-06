@@ -17,12 +17,12 @@ jobs:
     parameters:
       environment: dev
       module: applications
-      subscription: "Azure Pipeline: CMRC-Pre-Prod" #service principal
+      subscription: "Azure Pipeline: CMRC - Pre-Prod" #service principal
       runApply: true
 
   - template: templates/terragrunt_job.yml
     parameters:
       environment: dev
       module: base
-      subscription: "Azure Pipeline: CMRC-Pre-Prod" #service principal
+      subscription: "Azure Pipeline: CMRC - Pre-Prod" #service principal
       runApply: true
