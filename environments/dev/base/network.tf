@@ -50,3 +50,13 @@ module "network" {
     project     = var.project_acronym
   }
 }
+
+import {
+  to = module.network.azurerm_private_dns_zone.dns["vault"]
+  id = "/subscriptions/854f6d72-6641-4711-8deb-76d9ff49470d/resourceGroups/RG-Connectivity/providers/Microsoft.Network/privateDnsZones/privatelink.vaultcore.azure.net"
+}
+
+import {
+  to = module.network.azurerm_private_dns_zone.dns["sites"]
+  id = "/subscriptions/854f6d72-6641-4711-8deb-76d9ff49470d/resourceGroups/RG-Connectivity/providers/Microsoft.Network/privateDnsZones/privatelink.azurewebsites.net"
+}
