@@ -1,0 +1,8 @@
+environment     = "prod"
+location        = "UK South"
+project_acronym = "cmrc"
+vnet_rg         = "rg-cmrc-connectivity-prod"
+vnet_name       = "vnet-cmrc-prod"
+aad_sp_name     = "Azure Pipeline: CMRC-Prod"
+asp_linux_sku   = "P0v3"
+asp_windows_sku = "P0v4"
