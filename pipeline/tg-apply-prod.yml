@@ -1,27 +1,27 @@
-# ---
-# trigger:
-#   branches:
-#     include:
-#     - 'main'
-#   paths:
-#     include:
-#     - environments/prod
+---
+trigger:
+  branches:
+    include:
+    - 'main'
+  paths:
+    include:
+    - environments/prod
 
-# pr: none
+pr: none
 
-# pool: 'CM Prod Pool'
+pool: 'CMRC Prod Pool'
 
-# jobs:
-#   - template: templates/terragrunt_job.yml
-#     parameters:
-#       environment: prod
-#       module: applications
-#       subscription: "Azure Pipeline: Case Management - Prod" #service principal
-#       runApply: true
+jobs:
+  # - template: templates/terragrunt_job.yml
+  #   parameters:
+  #     environment: prod
+  #     module: applications
+  #     subscription: "Azure Pipeline: CMRC - Prod" #service principal
+  #     runApply: true
 
-#   - template: templates/terragrunt_job.yml
-#     parameters:
-#       environment: prod
-#       module: base
-#       subscription: "Azure Pipeline: Case Management - Prod" #service principal
-#       runApply: true
+  - template: templates/terragrunt_job.yml
+    parameters:
+      environment: prod
+      module: base
+      subscription: "Azure Pipeline: CMRC - Prod" #service principal
+      runApply: true

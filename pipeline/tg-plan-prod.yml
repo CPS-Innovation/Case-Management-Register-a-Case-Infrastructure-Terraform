@@ -1,26 +1,26 @@
-# ---
-# trigger:
-#   branches:
-#     exclude:
-#     - main
-#   # The following is set manually via the ADO UI as it isn't working for a yet unknown reason
-#   # paths:
-#   #   include:
-#   #   - environments/prod
+---
+trigger:
+  branches:
+    exclude:
+    - main
+  # The following is set manually via the ADO UI as it isn't working for a yet unknown reason
+  # paths:
+  #   include:
+  #   - environments/prod
 
-# pr: none
+pr: none
 
-# pool: 'CM Prod Pool'
+pool: 'CMRC Prod Pool'
 
-# jobs:
-#   - template: templates/terragrunt_job.yml
-#     parameters:
-#       environment: prod
-#       module: applications
-#       subscription: "Azure Pipeline: Case Management - Prod" #service principal
+jobs:
+  # - template: templates/terragrunt_job.yml
+  #   parameters:
+  #     environment: prod
+  #     module: applications
+  #     subscription: "Azure Pipeline: CMRC - Prod" #service principal
 
-#   - template: templates/terragrunt_job.yml
-#     parameters:
-#       environment: prod
-#       module: base
-#       subscription: "Azure Pipeline: Case Management - Prod" #service principal
+  - template: templates/terragrunt_job.yml
+    parameters:
+      environment: prod
+      module: base
+      subscription: "Azure Pipeline: CMRC - Prod" #service principal

@@ -1,0 +1,5 @@
+subscription_env = "prod"
+environment      = "prod"
+project_acronym  = "cmrc"
+vnet_rg          = "rg-cmrc-connectivity-prod"
+vnet_name        = "vnet-cmrc-prod"
