@@ -12,12 +12,12 @@ pr: none
 pool: 'CMRC Prod Pool'
 
 jobs:
-  # - template: templates/terragrunt_job.yml
-  #   parameters:
-  #     environment: prod
-  #     module: applications
-  #     subscription: "Azure Pipeline: CMRC - Prod" #service principal
-  #     runApply: true
+  - template: templates/terragrunt_job.yml
+    parameters:
+      environment: prod
+      module: applications
+      subscription: "Azure Pipeline: CMRC - Prod" #service principal
+      runApply: true
 
   - template: templates/terragrunt_job.yml
     parameters:
