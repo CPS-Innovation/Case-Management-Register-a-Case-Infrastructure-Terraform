@@ -18,6 +18,7 @@ jobs:
       module: applications
       subscription: "Azure Pipeline: CMRC - Prod" #service principal
       runApply: true
+      variableGroupName: 'cmrc-infra-vars-prod'
 
   - template: templates/terragrunt_job.yml
     parameters:
