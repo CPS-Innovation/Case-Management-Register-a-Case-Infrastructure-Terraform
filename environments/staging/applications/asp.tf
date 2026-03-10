@@ -8,7 +8,7 @@ module "asp_linux" {
   rg_name         = module.rg.rg_name
 
   os_type = "linux"
-  sku     = "P0v3"
+  sku     = var.asp_linux_sku
 }
 
 module "asp_windows" {
@@ -21,5 +21,5 @@ module "asp_windows" {
   rg_name         = module.rg.rg_name
 
   os_type = "windows"
-  sku     = "P0v4"
+  sku     = var.asp_windows_sku
 }

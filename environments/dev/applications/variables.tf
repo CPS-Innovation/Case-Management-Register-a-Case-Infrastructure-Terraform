@@ -22,3 +22,18 @@ variable "vnet_rg" {
   type        = string
   description = "The name of the virtual network in which to create the subnet"
 }
+
+variable "aad_sp_name" {
+  type        = string
+  description = "Display name of the enterprise app (service principal) used to deploy code to the resources in the environment"
+}
+
+variable "asp_linux_sku" {
+  type        = string
+  description = "The SKU of the Linux app service plan."
+}
+
+variable "asp_windows_sku" {
+  type        = string
+  description = "The SKU of the Windows app service plan."
+}
