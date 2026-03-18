@@ -10,8 +10,8 @@ module "network" {
   route_table_id   = data.azurerm_route_table.rt.id
 
   private_dns_zones = {
-    sites = "privatelink.azurewebsites.net"
-    vault = "privatelink.vaultcore.azure.net"
+    # sites = "privatelink.azurewebsites.net"
+    # vault = "privatelink.vaultcore.azure.net"
   }
 
   subnets = {
