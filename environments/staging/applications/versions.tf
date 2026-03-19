@@ -19,3 +19,10 @@ provider "azurerm" {
   features {}
   storage_use_azuread = true
 }
+
+provider "azurerm" {
+  alias = "siem-prod"
+  features {}
+  subscription_id                 = var.siem_evh_subscription_id
+  resource_provider_registrations = "none"
+}
