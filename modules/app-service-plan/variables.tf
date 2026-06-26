@@ -50,3 +50,9 @@ variable "zone_balancing_enabled" {
   description = "Determines if zone balancing is enabled for the app service plan."
   default     = false
 }
+
+variable "auto_scale_enabled" {
+  type        = bool
+  description = "Should auto-scaling be enabled for the app service plan?"
+  default     = null
+}

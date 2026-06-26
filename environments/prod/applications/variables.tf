@@ -28,9 +28,26 @@
 #   description = "Display name of the enterprise app (service principal) used to deploy code to the resources in the environment"
 # }
 
+# variable "asp_zone_balancing_enabled" {
+#   type        = bool
+#   description = "Determines if zone balancing is enabled for the app service plan."
+#   default     = false
+# }
+
+# variable "asp_auto_scale_enabled" {
+#   type        = bool
+#   description = "Should auto-scaling be enabled for the app service plan?"
+#   default     = false
+# }
+
 # variable "asp_linux_sku" {
 #   type        = string
 #   description = "The SKU of the Linux app service plan."
+# }
+
+# variable "asp_linux_worker_count" {
+#   type        = number
+#   description = "The number of instances running each app on the service plan. For zone redundancy, must be a multiple of availability zones in the region"
 # }
 
 # variable "asp_windows_sku" {
@@ -38,8 +55,19 @@
 #   description = "The SKU of the Windows app service plan."
 # }
 
+# variable "asp_windows_worker_count" {
+#   type        = number
+#   description = "The number of instances running each app on the service plan. For zone redundancy, must be a multiple of availability zones in the region"
+# }
+
 # variable "dev_team_email" {
 #   type        = string
 #   description = "The DL email address of the project's dev team."
+#   sensitive   = true
+# }
+
+# variable "siem_evh_subscription_id" {
+#   type        = string
+#   description = "The GUID of the Azure Subscription where the SIEM event hub resides."
 #   sensitive   = true
 # }

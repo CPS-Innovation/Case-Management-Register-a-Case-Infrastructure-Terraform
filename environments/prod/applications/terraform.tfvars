@@ -4,5 +4,12 @@
 # vnet_rg         = "rg-cmrc-connectivity-prod"
 # vnet_name       = "vnet-cmrc-prod"
 # aad_sp_name     = "Azure Pipeline: CMRC-Prod"
-# asp_linux_sku   = "P0v3"
-# asp_windows_sku = "P0v4"
+
+asp_auto_scale_enabled     = true
+asp_zone_balancing_enabled = true
+
+asp_linux_sku          = "P0v3"
+asp_linux_worker_count = 3
+
+asp_windows_sku          = "P0v4"
+asp_windows_worker_count = 3
