@@ -43,3 +43,9 @@ variable "dev_team_email" {
   description = "The DL email address of the project's dev team."
   sensitive   = true
 }
+
+variable "siem_evh_subscription_id" {
+  type        = string
+  description = "The GUID of the Azure Subscription where the SIEM event hub resides."
+  sensitive   = true
+}
