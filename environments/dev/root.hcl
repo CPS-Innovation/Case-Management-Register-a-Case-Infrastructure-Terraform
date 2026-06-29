@@ -14,3 +14,9 @@ remote_state {
     container_name       = "tfstate"
   }
 }
+
+terraform {
+  include_in_copy = [
+    find_in_parent_folders("modules")
+  ]
+}

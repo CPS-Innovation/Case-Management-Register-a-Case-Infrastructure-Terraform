@@ -55,15 +55,21 @@ variable "asp_windows_sku" {
   description = "The SKU of the Windows app service plan."
 }
 
+variable "asp_windows_worker_count" {
+  type        = number
+  description = "The number of instances running each app on the service plan. For zone redundancy, must be a multiple of availability zones in the region"
+}
+
 variable "log_retention_in_days" {
   type        = number
   description = "The workspace data retention in days."
   default     = 60
 }
 
-variable "asp_windows_worker_count" {
+variable "kv_soft_delete_retention_days" {
   type        = number
-  description = "The number of instances running each app on the service plan. For zone redundancy, must be a multiple of availability zones in the region"
+  description = "The number of days to retain deleted KV objects in a recoverable state"
+  default     = 7
 }
 
 variable "dev_team_email" {

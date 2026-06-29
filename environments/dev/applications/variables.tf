@@ -65,3 +65,9 @@ variable "log_retention_in_days" {
   description = "The workspace data retention in days."
   default     = 60
 }
+
+variable "kv_soft_delete_retention_days" {
+  type        = number
+  description = "The number of days to retain deleted KV objects in a recoverable state"
+  default     = 7
+}

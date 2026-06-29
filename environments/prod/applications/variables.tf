@@ -66,6 +66,12 @@
 #   default = 60
 # }
 
+# variable "kv_soft_delete_retention_days" {
+#   type = number
+#   description = "The number of days to retain deleted KV objects in a recoverable state"
+#   default = 7
+# }
+
 # variable "dev_team_email" {
 #   type        = string
 #   description = "The DL email address of the project's dev team."
