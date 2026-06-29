@@ -51,8 +51,9 @@ variable "blob_delete_retention" {
     permanent_delete_enabled = bool
   })
   description = "The delete retention policy for the storage account"
-  default = {
-    days                     = 3
-    permanent_delete_enabled = true
-  }
+}
+
+variable "replication_type" {
+  type        = string
+  description = "The replication type for the storage account."
 }

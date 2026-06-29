@@ -17,3 +17,9 @@ asp_windows_worker_count = 3
 log_retention_in_days = 90
 
 kv_soft_delete_retention_days = 90
+
+sa_delete_retention = {
+  days                     = 7
+  permanent_delete_enabled = true
+}
+sa_replication_type = "GZRS"

@@ -72,6 +72,24 @@ variable "kv_soft_delete_retention_days" {
   default     = 7
 }
 
+variable "sa_delete_retention" {
+  type = object({
+    days                     = number
+    permanent_delete_enabled = bool
+  })
+  description = "The delete retention policy for the storage account"
+  default = {
+    days                     = 3
+    permanent_delete_enabled = true
+  }
+}
+
+variable "sa_replication_type" {
+  type        = string
+  description = "The replication type for the storage account."
+  default     = "LRS"
+}
+
 variable "dev_team_email" {
   type        = string
   description = "The DL email address of the project's dev team."
