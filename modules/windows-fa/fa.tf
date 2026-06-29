@@ -21,8 +21,8 @@ resource "azurerm_windows_function_app" "fa" {
     worker_count                           = var.fa_worker_count
     app_scale_limit                        = var.app_scale_limit
 
-    health_check_path                 = var.health_check_path
-    health_check_eviction_time_in_min = var.health_check_eviction_time_mins
+    health_check_path                 = var.health_check.path
+    health_check_eviction_time_in_min = var.health_check.eviction_time_min
 
     application_stack {
       dotnet_version              = var.dotnet_version

@@ -23,6 +23,9 @@ resource "azurerm_linux_web_app" "app" {
     minimum_tls_version     = "1.2"
     scm_minimum_tls_version = "1.2"
     managed_pipeline_mode   = "Integrated"
+
+    health_check_path                 = var.health_check.path
+    health_check_eviction_time_in_min = var.health_check.eviction_time_min
   }
 
   identity {

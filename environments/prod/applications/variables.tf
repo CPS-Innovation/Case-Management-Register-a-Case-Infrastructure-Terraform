@@ -96,6 +96,12 @@
 #   sensitive   = true
 # }
 
+# variable "health_check_eviction_time_min" {
+#   type = number
+#   description = "The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between 2 and 10."
+#   default = 10
+# }
+
 # variable "siem_evh_subscription_id" {
 #   type        = string
 #   description = "The GUID of the Azure Subscription where the SIEM event hub resides."
