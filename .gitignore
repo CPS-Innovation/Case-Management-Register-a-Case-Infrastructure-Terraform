@@ -5,6 +5,9 @@
 *.tfstate
 *.tfstate.*
 
+# terragrunt cache
+.terragrunt-cache
+
 # Crash log files
 crash.log
 crash.*.log
