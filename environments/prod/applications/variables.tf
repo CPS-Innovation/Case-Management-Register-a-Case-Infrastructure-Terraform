@@ -60,6 +60,12 @@
 #   description = "The number of instances running each app on the service plan. For zone redundancy, must be a multiple of availability zones in the region"
 # }
 
+# variable "log_retention_in_days" {
+#   type = number
+#   description = "The workspace data retention in days."
+#   default = 60
+# }
+
 # variable "dev_team_email" {
 #   type        = string
 #   description = "The DL email address of the project's dev team."

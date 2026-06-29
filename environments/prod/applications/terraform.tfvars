@@ -13,3 +13,5 @@ asp_linux_worker_count = 3
 
 asp_windows_sku          = "P0v4"
 asp_windows_worker_count = 3
+
+log_retention_in_days = 90

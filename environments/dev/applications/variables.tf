@@ -59,3 +59,9 @@ variable "asp_windows_worker_count" {
   type        = number
   description = "The number of instances running each app on the service plan. For zone redundancy, must be a multiple of availability zones in the region"
 }
+
+variable "log_retention_in_days" {
+  type        = number
+  description = "The workspace data retention in days."
+  default     = 60
+}

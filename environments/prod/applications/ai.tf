@@ -6,4 +6,5 @@
 #   location        = var.location
 #   tags            = local.tags
 #   rg_name         = module.rg.rg_name
+#   log_retention_in_days = var.log_retention_in_days
 # }
