@@ -9,6 +9,8 @@ resource "azurerm_windows_function_app_slot" "fa_slot" {
   virtual_network_subnet_id     = var.vnet_subnet_id
   builtin_logging_enabled       = false
   https_only                    = true
+  client_certificate_enabled    = true
+  client_certificate_mode       = "Optional"
 
   site_config {
     application_insights_connection_string = var.ai_connection_string

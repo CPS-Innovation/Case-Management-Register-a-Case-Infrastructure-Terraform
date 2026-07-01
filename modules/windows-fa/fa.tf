@@ -9,7 +9,8 @@ resource "azurerm_windows_function_app" "fa" {
   public_network_access_enabled = false
   builtin_logging_enabled       = false
   https_only                    = true
-  client_certificate_mode       = "Required"
+  client_certificate_enabled    = true
+  client_certificate_mode       = "Optional"
 
   site_config {
     application_insights_connection_string = var.ai_connection_string
