@@ -5,8 +5,7 @@ resource "azurerm_linux_web_app_slot" "app_slot" {
   virtual_network_subnet_id     = var.vnet_subnet_id
   public_network_access_enabled = false
   https_only                    = true
-  client_certificate_enabled    = true
-  client_certificate_mode       = "Optional"
+  client_certificate_enabled    = false
 
   site_config {
     app_command_line        = var.app_command_line
