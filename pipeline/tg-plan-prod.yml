@@ -13,12 +13,12 @@ pr: none
 pool: 'CMRC Prod Pool'
 
 jobs:
-  - template: templates/terragrunt_job.yml
-    parameters:
-      environment: prod
-      module: applications
-      subscription: "Azure Pipeline: CMRC - Prod" #service principal
-      variableGroupName: 'cmrc-infra-vars-prod'
+  # - template: templates/terragrunt_job.yml
+  #   parameters:
+  #     environment: prod
+  #     module: applications
+  #     subscription: "Azure Pipeline: CMRC - Prod" #service principal
+  #     variableGroupName: 'cmrc-infra-vars-prod'
 
   - template: templates/terragrunt_job.yml
     parameters:
