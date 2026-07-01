@@ -27,5 +27,4 @@ module "asp_windows" {
   sku                    = var.asp_windows_sku
   worker_count           = var.asp_windows_worker_count
   zone_balancing_enabled = startswith(var.asp_linux_sku, "B") ? false : var.asp_zone_balancing_enabled
-  auto_scale_enabled     = startswith(var.asp_windows_sku, "P") ? var.asp_auto_scale_enabled : null
 }
