@@ -1,9 +1,9 @@
-# environment     = "prod"
-# location        = "UK South"
-# project_acronym = "cmrc"
-# vnet_rg         = "rg-cmrc-connectivity-prod"
-# vnet_name       = "vnet-cmrc-prod"
-# aad_sp_name     = "Azure Pipeline: CMRC-Prod"
+environment     = "prod"
+location        = "UK South"
+project_acronym = "cmrc"
+vnet_rg         = "rg-cmrc-connectivity-prod"
+vnet_name       = "vnet-cmrc-prod"
+aad_sp_name     = "Azure Pipeline: CMRC-Prod"
 
 asp_auto_scale_enabled     = true
 asp_zone_balancing_enabled = true
