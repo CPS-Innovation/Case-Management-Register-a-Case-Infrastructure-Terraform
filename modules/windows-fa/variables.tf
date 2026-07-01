@@ -153,21 +153,3 @@ variable "health_check" {
   }
   default = null
 }
-
-# variable "health_check_path" {
-#   type        = string
-#   description = "The health or status endpoint to hit as the pulse check for the app's nodes. Must begin with a '/'. E.g '/api/status'."
-#   default     = null
-#   nullable    = true
-#   validation {
-#     condition     = var.health_check_path == null ? true : startswith(var.health_check_path, "/")
-#     error_message = "Unless null, health check path must begin with a '/'."
-#   }
-# }
-
-# variable "health_check_eviction_time_mins" {
-#   type        = number
-#   description = "The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between 2 and 10. Only valid in conjunction with health_check_path."
-#   default     = null
-#   nullable    = true
-# }

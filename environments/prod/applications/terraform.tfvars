@@ -25,3 +25,6 @@ sa_delete_retention = {
 sa_replication_type = "GZRS"
 
 health_check_eviction_time_min = 2
+
+alert_ui_5xx_rate_threshold = 1
+alert_ui_latency_threshold  = 15

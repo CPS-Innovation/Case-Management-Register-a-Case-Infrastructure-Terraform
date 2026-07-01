@@ -16,8 +16,8 @@ resource "azurerm_linux_web_app_slot" "app_slot" {
     scm_minimum_tls_version = "1.2"
     managed_pipeline_mode   = "Integrated"
 
-    health_check_path                 = var.health_check.path
-    health_check_eviction_time_in_min = var.health_check.eviction_time_min
+    health_check_path                 = var.health_check == null ? null : var.health_check.path
+    health_check_eviction_time_in_min = var.health_check == null ? null : var.health_check.eviction_time_min
   }
 
   identity {
