@@ -5,6 +5,7 @@ resource "azurerm_linux_web_app_slot" "app_slot" {
   virtual_network_subnet_id     = var.vnet_subnet_id
   public_network_access_enabled = false
   https_only                    = true
+  client_certificate_enabled    = false
 
   site_config {
     app_command_line        = var.app_command_line
@@ -15,6 +16,9 @@ resource "azurerm_linux_web_app_slot" "app_slot" {
     minimum_tls_version     = "1.2"
     scm_minimum_tls_version = "1.2"
     managed_pipeline_mode   = "Integrated"
+
+    health_check_path                 = var.health_check == null ? null : var.health_check.path
+    health_check_eviction_time_in_min = var.health_check == null ? null : var.health_check.eviction_time_min
   }
 
   identity {

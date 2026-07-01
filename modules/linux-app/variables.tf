@@ -95,3 +95,16 @@ variable "sticky_settings" {
   }))
   default = {}
 }
+
+variable "health_check" {
+  type = object({
+    path              = string
+    eviction_time_min = number
+  })
+  description = "The health check settings for the app."
+  validation {
+    condition     = var.health_check == null ? true : startswith(var.health_check.path, "/")
+    error_message = "Unless null, health check path must begin with a '/'."
+  }
+  default = null
+}

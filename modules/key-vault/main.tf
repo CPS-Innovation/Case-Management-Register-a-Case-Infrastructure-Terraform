@@ -4,7 +4,7 @@ resource "azurerm_key_vault" "kv" {
   resource_group_name         = var.rg_name
   enabled_for_disk_encryption = true
   tenant_id                   = var.tenant_id
-  soft_delete_retention_days  = 7
+  soft_delete_retention_days  = var.soft_delete_retention_days
   purge_protection_enabled    = true
   rbac_authorization_enabled  = true
 

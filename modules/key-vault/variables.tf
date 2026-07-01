@@ -44,6 +44,11 @@ variable "tenant_id" {
   description = "The tenant id of the current subscription."
 }
 
+variable "soft_delete_retention_days" {
+  type        = number
+  description = "The number of days to retain deleted KV objects in a recoverable state"
+}
+
 variable "pe_subnet_id" {
   type        = string
   description = "The id of the subnet within which the Private Endpoint IP is located."

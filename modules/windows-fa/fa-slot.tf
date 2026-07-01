@@ -9,6 +9,7 @@ resource "azurerm_windows_function_app_slot" "fa_slot" {
   virtual_network_subnet_id     = var.vnet_subnet_id
   builtin_logging_enabled       = false
   https_only                    = true
+  client_certificate_enabled    = false
 
   site_config {
     application_insights_connection_string = var.ai_connection_string
@@ -20,8 +21,8 @@ resource "azurerm_windows_function_app_slot" "fa_slot" {
     worker_count                           = var.fa_worker_count
     app_scale_limit                        = var.app_scale_limit
 
-    health_check_path                 = var.health_check_path
-    health_check_eviction_time_in_min = var.health_check_eviction_time_mins
+    health_check_path                 = var.health_check == null ? null : var.health_check.path
+    health_check_eviction_time_in_min = var.health_check == null ? null : var.health_check.eviction_time_min
 
     application_stack {
       dotnet_version              = var.dotnet_version
