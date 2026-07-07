@@ -6,7 +6,7 @@ vnet_name       = "vnet-cmrc-prod"
 aad_sp_name     = "Azure Pipeline: CMRC-Prod"
 
 asp_auto_scale_enabled     = true
-asp_zone_balancing_enabled = true
+asp_zone_balancing_enabled = false
 
 asp_linux_sku          = "P0v3"
 asp_linux_worker_count = 3
