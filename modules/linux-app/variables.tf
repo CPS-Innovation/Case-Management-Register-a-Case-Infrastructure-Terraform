@@ -50,6 +50,12 @@ variable "always_on" {
   default     = true
 }
 
+variable "worker_count" {
+  type        = number
+  description = "The number of Workers for this Linux App Service."
+  default     = 1
+}
+
 variable "ai_connection_string" {
   type        = string
   description = "The connection string for the application insights instance to associate with the app."
