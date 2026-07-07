@@ -15,6 +15,7 @@ module "ui_spa" {
   vnet_subnet_id       = data.azurerm_subnet.base["subnet-${var.project_acronym}-linux-apps-${var.environment}"].id
   ai_connection_string = module.ai.ai_connection_string
   always_on            = true
+  worker_count         = var.asp_linux_worker_count
   health_check = {
     path              = "/"
     eviction_time_min = var.health_check_eviction_time_min
