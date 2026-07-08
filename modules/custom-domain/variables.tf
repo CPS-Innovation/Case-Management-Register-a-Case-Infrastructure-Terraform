@@ -1,6 +1,6 @@
 variable "rg_name" {
   type        = string
-  description = "The name of the resource group in which to create the resource."
+  description = "The name of the resource group where the app service exists."
 }
 
 variable "hostname" {
