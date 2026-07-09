@@ -27,7 +27,7 @@ module "fa_main" {
 
   cors_allowed_origins = [
     "https://${module.ui_spa.default_hostname}",
-    "https://login.microsoftonline.com"
+    "https://${module.ui_hostname.hostname}"
   ]
 
   pe_subnet_id         = local.pe_subnet_id
