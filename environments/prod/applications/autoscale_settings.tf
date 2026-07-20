@@ -17,7 +17,10 @@ module "autoscaling_api" {
   }
 
   scale_metrics = {
-    cpu = {} # using module default values
+    cpu = {
+      upper_threshold = 75
+      # using module defaults for other values
+    }
     # currently the volume of requests is too low to set an informed threshold
     # memory usage *per-instance* hovers around 50%. It is not a useful metric for out-scaling.
   }
