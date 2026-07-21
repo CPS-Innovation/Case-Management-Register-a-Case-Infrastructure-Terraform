@@ -22,7 +22,7 @@ sa_delete_retention = {
   days                     = 7
   permanent_delete_enabled = true
 }
-sa_replication_type = "GZRS"
+sa_replication_type = "ZRS"
 
 health_check_eviction_time_min = 2
 
