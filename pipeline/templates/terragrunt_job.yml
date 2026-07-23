@@ -72,6 +72,8 @@ jobs:
 
           install_terraform
 
+          install_terraform
+
           # Ensure Terragrunt
           install_terragrunt() {
             if command -v terragrunt >/dev/null 2>&1; then
@@ -103,23 +105,6 @@ jobs:
         env:
           TERRAFORM_VERSION: $(terraformVersion)
           TERRAGRUNT_VERSION: $(terragruntVersion)
-
-      - task: Bash@3
-        displayName: "Ensure Azure CLI"
-        inputs:
-          targetType: "inline"
-          script: |
-            echo "Checking if Azure CLI is installed..."
-
-            # Check if az command exists
-            if command -v az &> /dev/null; then
-              echo "Azure CLI is already installed"
-              az --version
-              exit 0
-            fi
-
-            echo "Azure CLI not found, installing..."
-            bash $(System.DefaultWorkingDirectory)/pipeline/scripts/installAzureCli.sh
 
       - task: AzureCLI@2
         displayName: Authenticate Terraform
