@@ -31,61 +31,67 @@ jobs:
       - bash: |
           set -euo pipefail
 
-          # Ensure jq
-          if ! command -v jq &> /dev/null; then
-            echo "Installing jq..."
-            sudo apt update
-            sudo apt install -y jq
+          # Ensure required packages
+          for pkg in jq unzip; do
+            if ! command -v $pkg >/dev/null 2>&1; then
+              echo "Installing $pkg..."
+              sudo apt-get update
+              sudo apt-get install -y $pkg
+            fi
+          done
+
+          # Ensure Azure CLI
+          if ! command -v az >/dev/null 2>&1; then
+            echo "Installing Azure CLI..."
+            bash $(System.DefaultWorkingDirectory)/pipeline/scripts/installAzureCli.sh
           fi
 
-          install_terraform() {
+          # Ensure Terraform
             if command -v terraform >/dev/null 2>&1; then
-              CURRENT=$(terraform version -json | jq -r '.terraform_version' 2>/dev/null || true)
+            CURRENT=$(terraform version -json | jq -r '.terraform_version' 2>/dev/null || true)
 
-              if [ "$CURRENT" = "$TERRAFORM_VERSION" ]; then
-                echo "Terraform $CURRENT already installed"
-                return
-              fi
+            if [ "$CURRENT" = "$TERRAFORM_VERSION" ]; then
+              echo "Terraform $CURRENT already installed"
+              return
             fi
+          fi
 
-            echo "Installing Terraform $TERRAFORM_VERSION"
+          echo "Installing Terraform $TERRAFORM_VERSION"
 
-            wget -q \
-              "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
+          wget -q \
+            "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
 
-            unzip -qo "terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
+          unzip -qo "terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
 
-            chmod +x terraform
-            sudo mv terraform /usr/local/bin/
+          chmod +x terraform
+          sudo mv terraform /usr/local/bin/
 
-            rm -f "terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
-          }
+          rm -f "terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
 
-          install_terragrunt() {
-            if command -v terragrunt >/dev/null 2>&1; then
-              CURRENT=$(terragrunt --version | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | head -1 || true)
+          # Ensure Terragrunt
+          if command -v terragrunt >/dev/null 2>&1; then
+            CURRENT=$(terragrunt --version | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | head -1 || true)
 
-              if [ "$CURRENT" = "$TERRAGRUNT_VERSION" ]; then
-                echo "Terragrunt $CURRENT already installed"
-                return
-              fi
+            if [ "$CURRENT" = "$TERRAGRUNT_VERSION" ]; then
+              echo "Terragrunt $CURRENT already installed"
+              return
             fi
+          fi
 
-            echo "Installing Terragrunt $TERRAGRUNT_VERSION"
+          echo "Installing Terragrunt $TERRAGRUNT_VERSION"
 
-            wget -q \
-              "https://github.com/gruntwork-io/terragrunt/releases/download/v${TERRAGRUNT_VERSION}/terragrunt_linux_amd64"
+          wget -q \
+            "https://github.com/gruntwork-io/terragrunt/releases/download/v${TERRAGRUNT_VERSION}/terragrunt_linux_amd64"
 
-            chmod +x terragrunt_linux_amd64
-            sudo mv terragrunt_linux_amd64 /usr/local/bin/terragrunt
-          }
+          chmod +x terragrunt_linux_amd64
+          sudo mv terragrunt_linux_amd64 /usr/local/bin/terragrunt
 
-          install_terraform
-          install_terragrunt
-
+          # List tool versions
           terraform version
           terragrunt --version
-        displayName: Install Terraform and Terragrunt
+          az version
+          jq --version
+        displayName: Bootstrap agent tools
         env:
           TERRAFORM_VERSION: $(terraformVersion)
           TERRAGRUNT_VERSION: $(terragruntVersion)
