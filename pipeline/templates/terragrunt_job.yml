@@ -34,7 +34,7 @@ jobs:
           sudo apt-get install zip -y
         displayName: Install Terragrunt and Tools
 
-      - task: ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller@0
+      - task: TerraformInstaller@1
         displayName: Install Terraform
         inputs:
           terraformVersion: '1.11.4'
