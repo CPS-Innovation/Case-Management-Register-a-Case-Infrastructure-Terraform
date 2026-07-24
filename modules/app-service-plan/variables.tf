@@ -23,6 +23,12 @@ variable "location" {
   description = "Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created."
 }
 
+variable "functional_area" {
+  type        = string
+  description = "The functional area / subsystem / workload of the app service plan. E.g 'ui'."
+  default     = null
+}
+
 variable "os_type" {
   type        = string
   description = "The Operating System of the App Service Plan. Valid options are 'windows' or 'linux'."
