@@ -3,7 +3,7 @@ resource "azurerm_service_plan" "asp" {
   #checkov:skip=CKV_AZURE_225:Ensure the App Service Plan is zone redundant
   #checkov:skip=CKV_AZURE_211:Ensure App Service plan suitable for production use
 
-  name                            = "asp-${var.project_acronym}-${lower(var.os_type)}-${var.environment}"
+  name                            = "asp-${var.project_acronym}-${local.qualifier}-${var.environment}"
   resource_group_name             = var.rg_name
   location                        = var.location
   os_type                         = title(var.os_type)
@@ -14,4 +14,8 @@ resource "azurerm_service_plan" "asp" {
   premium_plan_auto_scale_enabled = var.auto_scale_enabled
 
   tags = var.tags
+}
+
+locals {
+  qualifier = var.functional_area == null ? lower(var.os_type) : var.functional_area
 }
