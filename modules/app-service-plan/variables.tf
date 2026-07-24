@@ -33,6 +33,11 @@ variable "sku" {
   description = "The SKU of the App Service Plan."
 }
 
+variable "functional_area" {
+  type        = string
+  description = "The functional area / subsystem / workload for which the RG is created. E.g 'backend'."
+}
+
 variable "max_elastic_worker_count" {
   type        = number
   description = "The maximum number of workers that can be used when scaling out the apps on the service plan"

@@ -6,6 +6,7 @@ module "asp_linux" {
   location        = var.location
   tags            = local.tags
   rg_name         = module.rg.rg_name
+  functional_area = "linux"
 
   os_type                = "linux"
   sku                    = var.asp_linux_sku
@@ -22,6 +23,7 @@ module "asp_windows" {
   location        = var.location
   tags            = local.tags
   rg_name         = module.rg.rg_name
+  functional_area = "windows"
 
   os_type                = "windows"
   sku                    = var.asp_windows_sku
