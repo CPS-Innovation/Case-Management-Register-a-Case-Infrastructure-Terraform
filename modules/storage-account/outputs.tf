@@ -1,7 +1,7 @@
-output "id" {
+output "account_id" {
   value = azurerm_storage_account.sa.id
 }
 
-output "name" {
+output "account_name" {
   value = azurerm_storage_account.sa.name
 }

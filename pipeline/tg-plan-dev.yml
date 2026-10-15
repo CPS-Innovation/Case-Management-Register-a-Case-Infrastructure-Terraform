@@ -19,6 +19,7 @@ jobs:
       environment: dev
       module: applications
       subscription: "Azure Pipeline: CMRC - Pre-Prod" #service principal
+      variableGroupName: 'cmrc-infra-vars-dev'
 
   - template: templates/terragrunt_job.yml
     parameters:

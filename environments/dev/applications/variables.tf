@@ -89,3 +89,9 @@ variable "sa_replication_type" {
   description = "The replication type for the storage account."
   default     = "LRS"
 }
+
+variable "lacc_subscription_id" {
+  type        = string
+  description = "The GUID of the Azure Subscription where the LACC resources reside."
+  sensitive   = true
+}

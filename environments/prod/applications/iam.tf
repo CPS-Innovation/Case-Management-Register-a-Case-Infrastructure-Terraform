@@ -11,7 +11,7 @@ resource "azurerm_role_assignment" "ado_service_principal" {
 locals {
   ado_sp_roles = {
     sa = {
-      scope = module.fa_sa.id
+      scope = module.fa_sa.account_id
       role_definitions = [
         "Storage Blob Data Contributor",
         "Storage Queue Data Contributor",
