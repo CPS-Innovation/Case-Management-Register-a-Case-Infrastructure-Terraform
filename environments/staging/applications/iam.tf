@@ -34,3 +34,20 @@ locals {
     ]
   ])
 }
+
+resource "azurerm_role_assignment" "lcc_reporting_service" {
+  for_each = {
+    log = {
+      scope           = module.ai.law_id
+      role_definition = "Log Analytics Reader"
+    }
+    sa = {
+      scope           = module.fa_sa.account_id
+      role_definition = "Storage Blob Data Contributor"
+    }
+  }
+
+  scope                = each.value.scope
+  role_definition_name = each.value.role_definition
+  principal_id         = data.azurerm_windows_function_app.lcc-reporting-service.identity[0].principal_id
+}
