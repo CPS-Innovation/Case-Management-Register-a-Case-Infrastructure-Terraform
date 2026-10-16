@@ -19,3 +19,10 @@ provider "azurerm" {
   features {}
   storage_use_azuread = true
 }
+
+provider "azurerm" {
+  alias = "lacc"
+  features {}
+  subscription_id                 = var.lacc_subscription_id
+  resource_provider_registrations = "none"
+}

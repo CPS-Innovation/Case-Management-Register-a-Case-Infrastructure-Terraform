@@ -57,3 +57,9 @@ variable "replication_type" {
   type        = string
   description = "The replication type for the storage account."
 }
+
+variable "containers" {
+  type        = list(string)
+  description = "A list of storage container names within the main storage account"
+  default     = []
+}

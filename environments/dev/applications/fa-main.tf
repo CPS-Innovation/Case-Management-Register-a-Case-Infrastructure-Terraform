@@ -15,8 +15,8 @@ module "fa_main" {
   ai_connection_string = module.ai.ai_connection_string
   always_on            = false
 
-  sa_name = module.fa_sa.name
-  sa_id   = module.fa_sa.id
+  sa_name = module.fa_sa.account_name
+  sa_id   = module.fa_sa.account_id
   sa_iam_roles = [
     "Storage Blob Data Owner",
     "Storage Table Data Contributor"

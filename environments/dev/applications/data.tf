@@ -30,3 +30,10 @@ data "azurerm_subnet" "base" {
   virtual_network_name = var.vnet_name
   resource_group_name  = var.vnet_rg
 }
+
+data "azurerm_windows_function_app" "lcc-reporting-service" {
+  provider = azurerm.lacc
+
+  name                = "fa-lacc-reporting-api-${var.environment}"
+  resource_group_name = "rg-lacc-${var.environment}"
+}

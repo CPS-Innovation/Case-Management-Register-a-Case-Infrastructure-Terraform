@@ -127,3 +127,9 @@ variable "alert_ui_latency_threshold" {
   type        = number
   description = "The response time in seconds over which a latency alert should be triggered."
 }
+
+variable "lacc_subscription_id" {
+  type        = string
+  description = "The GUID of the Azure Subscription where the LACC resources reside."
+  sensitive   = true
+}

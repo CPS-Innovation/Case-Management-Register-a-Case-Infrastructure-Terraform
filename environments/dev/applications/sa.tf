@@ -15,4 +15,8 @@ module "fa_sa" {
   private_endpoints = {
     blob = data.azurerm_private_dns_zone.dns["blob"].id
   }
+
+  containers = [
+    "${var.project_acronym}-reports-${var.environment}"
+  ]
 }

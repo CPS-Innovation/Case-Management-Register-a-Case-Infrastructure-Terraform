@@ -26,3 +26,10 @@ provider "azurerm" {
   subscription_id                 = var.siem_evh_subscription_id
   resource_provider_registrations = "none"
 }
+
+provider "azurerm" {
+  alias = "lacc"
+  features {}
+  subscription_id                 = var.lacc_subscription_id
+  resource_provider_registrations = "none"
+}
