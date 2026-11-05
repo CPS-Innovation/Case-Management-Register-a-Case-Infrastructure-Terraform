@@ -55,6 +55,6 @@ resource "azurerm_role_assignment" "lcc_reporting_service" {
 
 resource "azurerm_role_assignment" "lcc_reporting_logic_app" {
   role_definition_name = "Storage Blob Data Reader"
-  scope                = module.fa_sa.containers["${var.project_acronym}-reports-${var.environment}"].id
+  scope                = module.fa_sa.container_ids["${var.project_acronym}-reports-${var.environment}"]
   principal_id         = data.azurerm_logic_app_standard.lcc_reporting.identity[0].principal_id
 }
