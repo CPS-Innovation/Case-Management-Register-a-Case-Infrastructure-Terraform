@@ -35,6 +35,7 @@ locals {
   ])
 }
 
+# Temporary reporting service resources
 resource "azurerm_role_assignment" "lcc_reporting_service" {
   for_each = {
     log = {
@@ -49,5 +50,11 @@ resource "azurerm_role_assignment" "lcc_reporting_service" {
 
   scope                = each.value.scope
   role_definition_name = each.value.role_definition
-  principal_id         = data.azurerm_windows_function_app.lcc-reporting-service.identity[0].principal_id
+  principal_id         = data.azurerm_windows_function_app.lcc_reporting_service.identity[0].principal_id
+}
+
+resource "azurerm_role_assignment" "lcc_reporting_logic_app" {
+  role_definition_name = "Storage Blob Data Reader"
+  scope                = module.fa_sa.containers["${var.project_acronym}-reports-${var.environment}"].id
+  principal_id         = data.azurerm_logic_app_standard.lcc_reporting.identity[0].principal_id
 }

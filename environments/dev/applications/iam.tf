@@ -49,5 +49,5 @@ resource "azurerm_role_assignment" "lcc_reporting_service" {
 
   scope                = each.value.scope
   role_definition_name = each.value.role_definition
-  principal_id         = data.azurerm_windows_function_app.lcc-reporting-service.identity[0].principal_id
+  principal_id         = data.azurerm_windows_function_app.lcc_reporting_service.identity[0].principal_id
 }
